@@ -6,6 +6,8 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Helmet } from "react-helmet-async";
 import Header from "../../components/RoomDetails/Header";
 import RoomInfo from "../../components/RoomDetails/RoomInfo";
+import CalendarCom from "./CalendarCom";
+import RoomReservation from "../../components/RoomDetails/RoomReservation";
 
 function RoomDetails() {
   // const { id } = useParams();
@@ -20,16 +22,18 @@ function RoomDetails() {
       <Helmet>
         <title>{singleRoomData.title}</title>
       </Helmet>
-      <div>
+      <div className="max-w-screen-lg mx-auto">
         <div className="flex flex-col gap-6">
           <Header roomData={singleRoomData}></Header>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-7">
+        <div className="grid grid-cols-1 mt-6 md:grid-cols-7 md:gap-10">
           <RoomInfo roomData={singleRoomData}></RoomInfo>
-
-          <h1 className="col-span-3 bg-red-300  h-36">Calender</h1>
+          <div className="order-first col-span-3 mb-10 md:order-last">
+            {/* <CalendarCom></CalendarCom> */}
+            {/* RoomReservation */}
+            <RoomReservation></RoomReservation>
+          </div>
         </div>
-        <div>{/* calender */}</div>
       </div>
     </Container>
   );

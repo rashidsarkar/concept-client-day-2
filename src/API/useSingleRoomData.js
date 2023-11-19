@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 function useSingleRoomData() {
   // console.log(id);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const {
     data: singleRoomData,
     isLoading,
