@@ -4,6 +4,8 @@ import useSingleRoomData from "../../API/useSingleRoomData";
 import CustomLoading from "../../components/Loader/CustomLoading";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Helmet } from "react-helmet-async";
+import Header from "../../components/RoomDetails/Header";
+import RoomInfo from "../../components/RoomDetails/RoomInfo";
 
 function RoomDetails() {
   // const { id } = useParams();
@@ -19,8 +21,14 @@ function RoomDetails() {
         <title>{singleRoomData.title}</title>
       </Helmet>
       <div>
-        <div className="flex flex-col gap-6">{/* header */}</div>
-        <div>{/* room info */}</div>
+        <div className="flex flex-col gap-6">
+          <Header roomData={singleRoomData}></Header>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-7">
+          <RoomInfo roomData={singleRoomData}></RoomInfo>
+
+          <h1 className="col-span-3 bg-red-300  h-36">Calender</h1>
+        </div>
         <div>{/* calender */}</div>
       </div>
     </Container>
