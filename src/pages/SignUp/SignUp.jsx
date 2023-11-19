@@ -8,6 +8,7 @@ const SignUp = () => {
     name: "",
     image: "",
     email: "",
+    password: "",
   };
   const validate = (values) => {
     const errors = {};
@@ -36,9 +37,12 @@ const SignUp = () => {
     return errors;
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values, { resetForm }) => {
     // Handle form submission logic here
     console.log(values);
+    // Reset the form to initial values after successful submission
+    // resetFom({ values: initialValues });
+    resetForm();
   };
 
   return (
