@@ -8,6 +8,7 @@ function CalendarCom({ value, handleSelect }) {
         rangeColors={["#F43F5E"]}
         direction="vertical"
         showDateDisplay={false}
+        ranges={[value]}
       />
     </div>
   );
