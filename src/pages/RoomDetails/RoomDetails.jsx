@@ -31,7 +31,7 @@ function RoomDetails() {
           <div className="order-first col-span-3 mb-10 md:order-last">
             {/* <CalendarCom></CalendarCom> */}
             {/* RoomReservation */}
-            <RoomReservation></RoomReservation>
+            <RoomReservation roomData={singleRoomData}></RoomReservation>
           </div>
         </div>
       </div>
