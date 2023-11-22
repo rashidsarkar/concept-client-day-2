@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
+import imageUpload from "../../API/imgbb";
+import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
+  const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -12,20 +15,9 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     const image = form.image.files[0];
-    const fromData = new FormData();
-    fromData.append("image", image);
-    // console.log(fromData);
-    try {
-      const { data } = await axios.post(
-        `https://api.imgbb.com/1/upload?key=${
-          import.meta.env.VITE_IMGBBAPI_KEY
-        }`,
-        fromData
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    const imageData = await imageUpload(image);
+    console.log(imageData);
+
     // console.log(name, email, password, image);
   };
   return (
