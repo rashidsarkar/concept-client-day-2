@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import imageUpload from "../../API/imgbb";
 import useAuth from "../../hooks/useAuth";
-import saveUser, { getToken } from "../../API/auth";
+import { getToken, saveUser } from "../../API/auth";
 import toast from "react-hot-toast";
 
 const SignUp = () => {
