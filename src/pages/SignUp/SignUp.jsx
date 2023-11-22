@@ -6,6 +6,7 @@ import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
+  console.log(createUser);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
