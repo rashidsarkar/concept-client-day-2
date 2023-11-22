@@ -1,6 +1,7 @@
 import axiosInstanceSecure from "../AxiosAPI/axiosInstanceSecure";
 
-const saveUser = async (user) => {
+export const saveUser = async (user) => {
+  // save user data in database
   const currentUser = {
     email: user.email,
     role: "guest",
@@ -13,4 +14,9 @@ const saveUser = async (user) => {
   return data;
 };
 
-export default saveUser;
+// get token from server
+export const getToken = async (email) => {
+  const { data } = await axiosInstanceSecure.post(`/jwt`, email);
+  console.log(`token received from server ${data}`);
+  return data;
+};

@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import imageUpload from "../../API/imgbb";
 import useAuth from "../../hooks/useAuth";
-import saveUser from "../../API/auth";
+import saveUser, { getToken } from "../../API/auth";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,10 +32,14 @@ const SignUp = () => {
       const dbResponse = await saveUser(result?.user);
       console.log(dbResponse);
       //5 get token
+      await getToken(result?.user?.email);
+      toast.success(`sing up successful`);
+      navigate("/");
 
       //result.data.email
     } catch (error) {
       console.log(error);
+      toast.error(error?.message);
     }
 
     // console.log(name, email, password, image);
